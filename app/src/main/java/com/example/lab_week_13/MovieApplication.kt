@@ -6,6 +6,8 @@ import com.example.lab_week_13.database.MovieDatabase
 import com.squareup.moshi.Moshi
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import androidx.work.*
+import java.util.concurrent.TimeUnit
 
 class MovieApplication : Application() {
 
@@ -31,5 +33,20 @@ class MovieApplication : Application() {
 
         movieRepository =
             MovieRepository(movieService, movieDatabase)
+
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.CONNECTED)
+            .build()
+
+        val workRequest =
+            PeriodicWorkRequestBuilder<MovieWorker>(
+                1, TimeUnit.HOURS
+            )
+                .setConstraints(constraints)
+                .addTag("movie-work")
+                .build()
+
+        WorkManager.getInstance(applicationContext)
+            .enqueue(workRequest)
     }
 }
