@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.lab_week_12.R
-import com.example.lab_week_12.databinding.ActivityMainBinding
+import com.example.lab_week_13.R
+import com.example.lab_week_13.databinding.ActivityMainBinding
 import com.example.lab_week_13.model.Movie
 
 class MainActivity : AppCompatActivity(),

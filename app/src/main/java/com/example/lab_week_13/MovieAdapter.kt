@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.lab_week_13.model.Movie
-import com.example.lab_week_12.R
+import com.example.lab_week_13.R
 
 class MovieAdapter(private val clickListener: MovieClickListener) :
     RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
