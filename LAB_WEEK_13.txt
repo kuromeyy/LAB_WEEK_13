@@ -1,0 +1,38 @@
+Assignment 
+Kellen Valerie 
+00000093194
+
+1. Why is MVVM important? Which files represent Model, which files represent
+View, and which files represent ViewModel?
+
+MVVM (Model–View–ViewModel) penting karena memisahkan logika bisnis dari tampilan UI, sehingga aplikasi lebih mudah dikembangkan, diuji, dan dirawat. Perubahan pada UI tidak akan memengaruhi logika bisnis, dan sebaliknya.
+
+Model: Movie.kt, PopularMoviesResponse.kt
+View: MainActivity.kt, DetailsActivity.kt, activity_main.xml
+ViewModel: MovieViewModel.kt
+
+2. In Part 1, you implemented Data Binding, why is this more efficient than using
+the normal method?
+
+Data Binding lebih efisien karena menghubungkan data langsung dari ViewModel ke tampilan tanpa menggunakan findViewById atau lifecycleScope secara manual. Hal ini mengurangi boilerplate code, meningkatkan performa, dan membuat kode lebih rapi serta mudah dipelihara.
+
+3. In Part 2, you implemented the Singleton Pattern, why is this important?
+
+Singleton Pattern penting untuk memastikan hanya ada satu instance database Room di seluruh aplikasi. Ini mencegah konflik data, menghindari race condition, dan menghemat penggunaan memori karena database tidak dibuat berulang kali.
+
+4.  In Part 2 & 3, you implemented the Repository Pattern, why is this important?
+
+Repository Pattern penting karena menjadi penghubung antara sumber data (API dan Database Room). Dengan pola ini, ViewModel tidak perlu mengetahui asal data, sehingga arsitektur aplikasi menjadi lebih bersih, fleksibel, dan mudah dikembangkan di masa depan.
+
+5. In part 3, you implemented the Worker Manager, is there another way to refresh
+your database with the latest data other than using Worker?
+
+Ya, selain menggunakan WorkManager, database juga bisa diperbarui menggunakan:
+
+Firebase Cloud Messaging (FCM)
+AlarmManager
+Manual refresh melalui tombol di aplikasi
+Background Service
+
+Namun WorkManager lebih direkomendasikan karena lebih stabil, hemat baterai, dan tetap berjalan walau aplikasi ditutup.
+
